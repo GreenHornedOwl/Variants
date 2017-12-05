@@ -1,0 +1,7 @@
+.active {
+  background-color: green;
+}
+.disabled {
+  opacity: 0.2;
+  /* background-color: red; */
+}
