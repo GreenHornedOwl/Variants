@@ -31,7 +31,7 @@ variantButtons.forEach((el)=>{
   el.addEventListener("click", (e) => {    
     if(combinationIsAvailable(_getVariantOption(e).join("."))) {    
       selectVariantOption(e);  
-      if(isFinalOption()) {
+      if(!isFinalOption()) {
         markAvailableOptions(document.querySelector("#variantID").value);
       }   
     } else {
@@ -154,5 +154,5 @@ function _verifyCombination(variant, combination){
 }
 
 function isFinalOption() {
-  return document.querySelector("#variantID").value.split(".").filter(x => x !== "").length <= dynamicVariantLength - 1;
+  return document.querySelector("#variantID").value.split(".").filter(x => x !== "").length >= dynamicVariantLength;
 }
