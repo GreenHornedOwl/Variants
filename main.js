@@ -1,23 +1,28 @@
 let activeOptions = [
   {
     "title": "Variant 1",
-    "id":"A01.B01.C02"
+    "id":"A01.B01.C02",
+    "stock": 2
   },
   {
     "title": "Variant 2",
-    "id":"A01.B02.C01"
+    "id":"A01.B02.C01",
+    "stock": 0
   },
   {
     "title": "Variant 3",
-    "id":"A01.B02.C02"
+    "id":"A01.B02.C02",
+    "stock": 2
   },
   {
     "title": "Variant 4",
-    "id":"A02.B01.C02"
+    "id":"A02.B01.C02",
+    "stock": 2
   },
   {
     "title": "Variant 5",
-    "id":"A03.B02.C01"
+    "id":"A03.B02.C01",
+    "stock": 2
   }
 ];
 
@@ -64,7 +69,7 @@ function markAvailableOptions(val) {
   console.log(val);
   var filteredOptions = activeOptions
         .filter(el => {   
-          return _verifyCombination(el.id,val);
+          return _verifyCombination(el.id,val) && el.stock > 0;
         }).reduce((result, value, key) => {
           result = [...result].concat(value.id.split("."));
           return result;
