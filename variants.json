@@ -1,0 +1,168 @@
+[
+  {
+		"name": "Antracyt 2",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=ANTRACYT.CIORAPI2&CartCmd=add&Quantity=",
+		"id": "ANTRACYT.CIORAPI2",
+		"number": "1440320570026",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Antracyt 3",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=ANTRACYT.CIORAPI3&CartCmd=add&Quantity=",
+		"id": "ANTRACYT.CIORAPI3",
+		"number": "1440320570033",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Antracyt 4",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=ANTRACYT.CIORAPI4&CartCmd=add&Quantity=",
+		"id": "ANTRACYT.CIORAPI4",
+		"number": "1440320570040",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Black 2",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=BLACK.CIORAPI2&CartCmd=add&Quantity=",
+		"id": "BLACK.CIORAPI2",
+		"number": "1440320010027",
+		"price": "34,67 lei",
+		"stock": "97",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Black 3",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=BLACK.CIORAPI3&CartCmd=add&Quantity=",
+		"id": "BLACK.CIORAPI3",
+		"number": "1440320010034",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Black 4",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=BLACK.CIORAPI4&CartCmd=add&Quantity=",
+		"id": "BLACK.CIORAPI4",
+		"number": "1440320010041",
+		"price": "34,67 lei",
+		"stock": "97",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Red 2",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=RED.CIORAPI2&CartCmd=add&Quantity=",
+		"id": "RED.CIORAPI2",
+		"number": "1440320240028",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Red 3",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=RED.CIORAPI3&CartCmd=add&Quantity=",
+		"id": "RED.CIORAPI3",
+		"number": "1440320240035",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Red 4",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=RED.CIORAPI4&CartCmd=add&Quantity=",
+		"id": "RED.CIORAPI4",
+		"number": "1440320240042",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Smoky 2",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=SMOKY.CIORAPI2&CartCmd=add&Quantity=",
+		"id": "SMOKY.CIORAPI2",
+		"number": "1440320780029",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Smoky 3",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=SMOKY.CIORAPI3&CartCmd=add&Quantity=",
+		"id": "SMOKY.CIORAPI3",
+		"number": "1440320780036",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "Smoky 4",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=SMOKY.CIORAPI4&CartCmd=add&Quantity=",
+		"id": "SMOKY.CIORAPI4",
+		"number": "1440320780043",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "White 2",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=WHITE.CIORAPI2&CartCmd=add&Quantity=",
+		"id": "WHITE.CIORAPI2",
+		"number": "1440320330026",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "White 3",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=WHITE.CIORAPI3&CartCmd=add&Quantity=",
+		"id": "WHITE.CIORAPI3",
+		"number": "1440320330033",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+	}, {
+		"name": "White 4",
+		"addToCart": "/Default.aspx?ID=787&ProductID=G-4032&VariantID=WHITE.CIORAPI4&CartCmd=add&Quantity=",
+		"id": "WHITE.CIORAPI4",
+		"number": "1440320330040",
+		"price": "34,67 lei",
+		"stock": "100",
+		"smallImage": "",
+		"productIsFavorite": "False",
+		"addToList": "",
+		"removeFromList": ""
+  }
+]
