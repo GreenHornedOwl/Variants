@@ -36,7 +36,7 @@ variantButtons.forEach((el)=>{
   el.addEventListener("click", (e) => {    
     if(combinationIsAvailable(_getVariantOption(e).join("."))) {    
       selectVariantOption(e); 
-      markAvailableOptionsV2(e);
+      markAvailableOptionsV2();
       // if(!isFinalOption()) {
       //   // markAvailableOptions(e);
       //   markAvailableOptionsV2();
@@ -98,56 +98,46 @@ function markAvailableOptions(e) {
   }); 
 }
 
-function markAvailableOptionsV2(e) {  
-  let val = document.querySelector("#variantID").value;  
-  // console.log(val);
-  let filteredOptions = val.split(".")
-    .filter(x => x !== "")
-    .reduce((result, value, key)=>{
-      let currentOption = value;        
-      // let optionIndex = _getVariantOptionIndex(activeOptions, currentOption);   
-      // console.log(optionIndex);
-      let possibleOptions = activeOptions         
-        .reduce((result2, value2, key2) => {
-          result2 = [...result2, value2.id];         
-          return result2;
-        },[])
-        .filter(x => x.split(".").includes(currentOption))
-        .reduce((result2, value2, key2) => {         
-          result2 = [...result2].concat(value2.split("."));
-          return result2;
-        },[])
-        .filter((el, i, a) => i === a.indexOf(el))
-        .filter(option => {
-          return _getVariantOptionIndex(activeOptions, option) !==  _getVariantOptionIndex(activeOptions, currentOption);
-        }); 
-       
-        result = [...result, possibleOptions];  
-          console.log(possibleOptions);
-        return result;
-      },[])
-      // .filter((el, i, a) => i === a.indexOf(el));
+function markAvailableOptionsV2() {  
+  let valArray = document.querySelector("#variantID").value; 
+  // console.log(valArray); 
+  let variantOptions = document.querySelectorAll('[data-role="variant"]');
+  var inactiveOptionsArray = [];
+  variantOptions.forEach(el => {
+    el.classList.remove("disabled");    
+  });
+  variantOptions.forEach(el => {
+    if (!el.classList.contains("active")) {
+      let obj = {};
+      obj.value = el.value;
+      obj.index = _getVariantOptionIndex(activeOptions, el.value) !== undefined ? _getVariantOptionIndex(activeOptions, el.value) : null;
+      obj.node = el;
+      inactiveOptionsArray = [...inactiveOptionsArray, obj];
+      // console.log(_getVariantOptionIndex(activeOptions, el.value));
+    } 
+    
+  });
+  console.log(inactiveOptionsArray);
 
-  // let activeSibllingsArray = _siblings(e.currentTarget)
-  //       .reduce((result, value, key) => {
-  //         if(!value.classList.contains("disabled")) {
-  //           result.push(value.value);
-  //         } 
-  //         return result;
-  //       },[]);  
-  // filteredOptions = [...filteredOptions, e.currentTarget.value].concat(activeSibllingsArray);      
- 
-  console.log(filteredOptions);
-  // let variantOptions = document.querySelectorAll('[data-role="variant"]');
-  // variantOptions.forEach(el => {
-  //   el.classList.remove("disabled");
-  // });
-  // variantOptions.forEach(el => {
-  //   let currentValue = el.value;
-  //   if (filteredOptions.filter(x => x == currentValue).length == 0) {
-  //     el.classList.add("disabled");
-  //   }
-  // }); 
+  inactiveOptionsArray.map((obj) => {
+    let valArray = document.querySelector("#variantID").value.split("."); 
+    if (obj.index !== null) {
+      valArray[obj.index] = obj.value;      
+    }  else {
+      //index not found, make first value of variant null = > no combination will be found
+      valArray[0] = "XXXXX";
+      
+    }
+
+    let variant = valArray.join(".");
+    console.log(variant);
+    if(combinationIsAvailable(variant) === false) {
+      obj.node.classList.add("disabled");
+    }
+
+  });
+  // console.log(inactiveOptionsArray); 
+  
 }
 
 let _siblings = n => [...n.parentElement.children].filter(c=>c!=n);
