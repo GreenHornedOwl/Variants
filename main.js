@@ -32,63 +32,24 @@ let optionsObj = {
   "unavailableCombinationText": "This option is not available for the current combination"
 }
 function HandleVariants(options){
-  console.log(options);
+  // console.log(options);
   let activeOptions = options.variants;
   let unavailableCombinationText = options.unavailableCombinationText;
   let dynamicVariantLength = activeOptions[0] !== undefined ? activeOptions[0].id.split(".").length : 0;
   let variantButtons = document.querySelectorAll('button[data-role="variant"]');
 
   variantButtons.forEach((el)=>{  
-    el.addEventListener("click", (e) => {    
+    el.addEventListener("click", (e) => {  
+      e.stopPropagation();  
       if(combinationIsAvailable(_getVariantOption(e).join("."))) {    
         selectVariantOption(e); 
         markAvailableOptions();     
-      } else {
+      } else {        
         alert (unavailableCombinationText);
       } 
   });
 
-function markAvailableOptionsV2() {  
-  let valArray = document.querySelector("#variantID").value; 
-  // console.log(valArray); 
-  let variantOptions = document.querySelectorAll('[data-role="variant"]');
-  var inactiveOptionsArray = [];
-  variantOptions.forEach(el => {
-    el.classList.remove("disabled");    
   });
-  variantOptions.forEach(el => {
-    if (!el.classList.contains("active")) {
-      let obj = {};
-      obj.value = el.value;
-      obj.index = _getVariantOptionIndex(activeOptions, el.value) !== undefined ? _getVariantOptionIndex(activeOptions, el.value) : null;
-      obj.node = el;
-      inactiveOptionsArray = [...inactiveOptionsArray, obj];
-      // console.log(_getVariantOptionIndex(activeOptions, el.value));
-    } 
-    
-  });
-  console.log(inactiveOptionsArray);
-
-  inactiveOptionsArray.map((obj) => {
-    let valArray = document.querySelector("#variantID").value.split("."); 
-    if (obj.index !== null) {
-      valArray[obj.index] = obj.value;      
-    }  else {
-      //index not found, make first value of variant null = > no combination will be found
-      valArray[0] = "XXXXX";
-      
-    }
-
-    let variant = valArray.join(".");
-    console.log(variant);
-    if(combinationIsAvailable(variant) === false) {
-      obj.node.classList.add("disabled");
-    }
-
-  });
-  // console.log(inactiveOptionsArray); 
-  
-}
 
   function _getVariantOptionIndex(arr,val){
     return arr
@@ -103,13 +64,13 @@ function markAvailableOptionsV2() {
       return false;
     } else {
       return activeOptions.filter(el => {   
-        return _verifyCombination(el.id,combination);
+        return _verifyCombination(el.id,combination) && el.stock > 0;
       }).length > 0 ? true : false;
     }
     
   }
   function markAvailableOptions() {  
-    let valArray = document.querySelector("#variantID").value;    
+    let valArray = document.querySelector("#VariantID").value;    
     let variantOptions = document.querySelectorAll('[data-role="variant"]');
     var inactiveOptionsArray = [];
     variantOptions.forEach(el => {
@@ -127,7 +88,7 @@ function markAvailableOptionsV2() {
     });   
   
     inactiveOptionsArray.map((obj) => {
-      let valArray = document.querySelector("#variantID").value.split("."); 
+      let valArray = document.querySelector("#VariantID").value.split("."); 
       if (obj.index !== null) {
         valArray[obj.index] = obj.value;      
       }  else {
@@ -144,7 +105,7 @@ function markAvailableOptionsV2() {
 
   let _siblings = n => [...n.parentElement.children].filter(c=>c!=n);
 
-  function selectVariantOption(e){  
+  function selectVariantOption(e){ 
     let sibllingsArray = _siblings(e.currentTarget); 
     let isActive = (e.currentTarget.classList.contains("active"));
     let currentValue = e.currentTarget.value;
@@ -152,18 +113,18 @@ function markAvailableOptionsV2() {
       sibllingsArray.map((elem) => {  
         elem.classList.remove("active");
       });
-      e.target.classList.add("active");
-      document.querySelector("#variantID").value = _getVariantOption(e).join(".");
+      e.currentTarget.classList.add("active");
+      document.querySelector("#VariantID").value = _getVariantOption(e).join(".");
     } else {
-      e.target.classList.remove("active");
-      document.querySelector("#variantID").value = _removeVariantOption(e).join(".");
+      e.currentTarget.classList.remove("active");
+      document.querySelector("#VariantID").value = _removeVariantOption(e).join(".");
     }
     
   }
   function _getVariantOption(e) {
     let val = e.currentTarget.value;
     let optionIndex = _getVariantOptionIndex(activeOptions, val);  
-    let variantValueArray = document.querySelector("#variantID").value.split(".");    
+    let variantValueArray = document.querySelector("#VariantID").value.split(".");    
     if (optionIndex !== undefined) {           
       if(variantValueArray.length < dynamicVariantLength) {     
         variantValueArray = _createEmptyVariantId(dynamicVariantLength);      
@@ -176,7 +137,7 @@ function markAvailableOptionsV2() {
   } 
   function _removeVariantOption(e){
     let val = e.currentTarget.value;    
-    let variantValueArray = document.querySelector("#variantID").value.split("."); 
+    let variantValueArray = document.querySelector("#VariantID").value.split("."); 
     return variantValueArray.reduce((result, value, key) => {
       if(value === val) {
         result.push("");
@@ -213,7 +174,7 @@ function markAvailableOptionsV2() {
   }
 
   function isFinalOption() {
-    return document.querySelector("#variantID").value.split(".").filter(x => x !== "").length >= dynamicVariantLength;
+    return document.querySelector("#VariantID").value.split(".").filter(x => x !== "").length >= dynamicVariantLength;
   }
 }
 
