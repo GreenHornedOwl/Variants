@@ -48,7 +48,47 @@ function HandleVariants(options){
       } 
   });
 
+function markAvailableOptionsV2() {  
+  let valArray = document.querySelector("#variantID").value; 
+  // console.log(valArray); 
+  let variantOptions = document.querySelectorAll('[data-role="variant"]');
+  var inactiveOptionsArray = [];
+  variantOptions.forEach(el => {
+    el.classList.remove("disabled");    
   });
+  variantOptions.forEach(el => {
+    if (!el.classList.contains("active")) {
+      let obj = {};
+      obj.value = el.value;
+      obj.index = _getVariantOptionIndex(activeOptions, el.value) !== undefined ? _getVariantOptionIndex(activeOptions, el.value) : null;
+      obj.node = el;
+      inactiveOptionsArray = [...inactiveOptionsArray, obj];
+      // console.log(_getVariantOptionIndex(activeOptions, el.value));
+    } 
+    
+  });
+  console.log(inactiveOptionsArray);
+
+  inactiveOptionsArray.map((obj) => {
+    let valArray = document.querySelector("#variantID").value.split("."); 
+    if (obj.index !== null) {
+      valArray[obj.index] = obj.value;      
+    }  else {
+      //index not found, make first value of variant null = > no combination will be found
+      valArray[0] = "XXXXX";
+      
+    }
+
+    let variant = valArray.join(".");
+    console.log(variant);
+    if(combinationIsAvailable(variant) === false) {
+      obj.node.classList.add("disabled");
+    }
+
+  });
+  // console.log(inactiveOptionsArray); 
+  
+}
 
   function _getVariantOptionIndex(arr,val){
     return arr
