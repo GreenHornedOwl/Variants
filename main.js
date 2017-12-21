@@ -26,7 +26,6 @@ let variantsPlaceholder = [
   }
 ];
 
-// let activeOptions = ["A","B","C"];
 let optionsObj = {
   "variants": variantsPlaceholder,
   "unavailableCombinationText": "This option is not available for the current combination"
