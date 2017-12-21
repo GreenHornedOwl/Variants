@@ -258,10 +258,8 @@ function RegisterGlobalEventsProductDetail(options) {
       ...activeOptions.slice(0, filteredVariantSelectedIndex),
       updatedFilteredVariantSelected,
       ...activeOptions.slice(filteredVariantSelectedIndex + 1)
-    ];
-    console.log(activeOptions);
-    activeOptions = [...updatedActiveOptions];
-    console.log(activeOptions);
+    ];    
+    activeOptions = [...updatedActiveOptions];    
     document.querySelector(".addToFavorites").classList.add("hidden");
     document.querySelector(".removeFromFavorites").classList.remove("hidden");    
   });
@@ -327,12 +325,6 @@ function OnLoadProductDetail(optionsOnLoad) {
   HandleVariants(this.data);  
   RegisterGlobalEventsProductDetail(this.data);
 }
-
-// var newState = [
-//   ...state.slice(0, index),
-//   state[index] + 1,
-//   ...state.slice(index + 1)
-// ];
 
 //init
 OnLoadProductDetail(optionsObj);
