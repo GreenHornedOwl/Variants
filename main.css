@@ -5,3 +5,6 @@
   opacity: 0.2;
   /* background-color: red; */
 }
+.hidden {
+  display: none;
+}

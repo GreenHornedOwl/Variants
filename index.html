@@ -7,8 +7,9 @@
   <link rel="stylesheet" href="main.css">
 </head>
 <body>
-  <input type="text" id="variantID" disabled value="">
-
+  <!-- <input type="text" id="variantID" disabled value="A02.B01.C02" />   -->
+  <input type="text" id="VariantID" disabled value="" />  
+  <input type="hidden" id="ProductID" value="PRODTEST" />
   <!-- <div id="sizeOneVariant">
     <button type="button" id="A" value="A" data-role="variant">S</button>
     <button type="button" id="B" value="B" data-role="variant">M</button>
@@ -30,7 +31,20 @@
   </div>
 
   <div>
-    Small - Blue - Left -> available option but stock is 0
+    Default stock = 2 <br/>
+    Small - Blue - Left -> available option but stock is 0 <br/>
+    [Initial State] Medium - Red - Right -> is in favorite list
+  </div>
+  <div id="quantity-container" style="margin-top:2rem;">
+    Quantity: <input type="number" value="1" min="1" max="9999" step="1" class="quantity" />
+  </div>
+  <div id="add-to-cart-container">
+    <button type="button" id="addToCart">Purchase</button>    
+  </div>
+  <div id="favorite-container" class="hidden" style="margin-top:2rem;">
+    <span>Favorite list variants</span>
+    <button type="button" class="addToFavorites hidden">Add to favorite</button>
+    <button type="button" class="removeFromFavorites hidden">Remove from favorites</button>
   </div>
   <script src="main.js"></script>
 </body>
