@@ -142,8 +142,8 @@ const VariantsClickable = node => {
   node.querySelector("#VariantId").value = node.querySelector("#VariantId").value !== "" ? node.querySelector("#VariantId").value : Array(combinationLength).fill(null).join(".");  
 
   //event listeners
-  node.querySelectorAll('[data-role="option"]').forEach(el=>{
-    el.addEventListener("click",(e)=>{  
+  node.querySelectorAll('[data-role="option-group"]').forEach(el=>{
+    el.addEventListener("change",(e)=>{  
       if(optionIsValid(e.target.value)) {        
         fillInCombination(e.target.value);  //fills in variant id
         markSelectedOption__Clickable(); 

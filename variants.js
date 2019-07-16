@@ -141,21 +141,7 @@ const VariantsClickable = node => {
   //fill in variant input with the selected combination or with an empty variant combination ex: .. for 3 dimention variant 
   node.querySelector("#VariantId").value = node.querySelector("#VariantId").value !== "" ? node.querySelector("#VariantId").value : Array(combinationLength).fill(null).join(".");  
 
-  //event listeners
-  node.querySelectorAll('[data-role="option"]').forEach(el=>{
-    el.addEventListener("click",(e)=>{  
-      if(optionIsValid(e.target.value)) {        
-        fillInCombination(e.target.value);  //fills in variant id
-        markSelectedOption__Clickable(); 
-        markUnavailableOptions__Clickable();
-      } else {
-        alert("Combination is not available");
-      }
-    });
-  });
+
 }
 
-//init
-document.querySelectorAll('[data-role="option-content"]').forEach(el=>{
-  VariantsClickable(el);
-});
+export default Variants;

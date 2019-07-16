@@ -1,0 +1,9 @@
+.disabled {
+  opacity: 0.2;
+}
+
+.active {
+  background-color: lightgreen;
+}
+
+/*# sourceMappingURL=main.css.map */
